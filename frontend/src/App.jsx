@@ -7,6 +7,8 @@ import Register from './pages/Register'
 import Workspaces from './pages/Workspaces'
 import WorkspaceDetail from './pages/WorkspaceDetail'
 import Board from './pages/Board'
+import Profile from './pages/Profile'
+import Dashboard from './pages/Dashboard'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/" element={<ProtectedRoute><Workspaces /></ProtectedRoute>} />
           <Route path="/workspaces/:id" element={<ProtectedRoute><WorkspaceDetail /></ProtectedRoute>} />
           <Route path="/boards/:id" element={<ProtectedRoute><Board /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
