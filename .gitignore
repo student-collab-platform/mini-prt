@@ -4,11 +4,23 @@ __pycache__/
 *.pyo
 .env
 *.sqlite3
+*.egg-info/
+venv/
+.venv/
 
 # Node
 node_modules/
 dist/
 .env.local
+.env.production
 
 # Docker
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
