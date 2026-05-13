@@ -14,7 +14,7 @@ export default function Login() {
     setLoading(true)
     try {
       await login(form.email, form.password)
-      navigate('/')
+      navigate('/home')
     } catch {
       setError('Invalid email or password')
     } finally {

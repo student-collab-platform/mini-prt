@@ -109,6 +109,11 @@ export default function Register() {
             <Link to="/login" className="text-indigo-600 font-medium hover:underline">
               Sign in
             </Link>
+            <p className="mt-4 text-center text-sm text-gray-400">
+              <Link to="/" className="hover:text-gray-600 transition-colors">
+                ← Back to home
+              </Link>
+            </p>
           </p>
         </div>
       </div>

@@ -11,40 +11,148 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-      <Link to="/" className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-sm">CB</span>
-        </div>
-        <span className="font-semibold text-gray-900 text-lg">CollabBoard</span>
-      </Link>
-      <Link to="/dashboard" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-        Dashboard
-      </Link>
-      {user && (
-        <div className="flex items-center gap-4">
+    <nav className="
+      sticky top-0 z-50
+      backdrop-blur-xl
+      bg-white/70
+      border-b border-slate-200
+    ">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        {/* Logo */}
+        <Link
+          to="/home"
+          className="flex items-center gap-2"
+        >
+          <div className="
+            w-10 h-10
+            rounded-2xl
+            bg-gradient-to-br from-indigo-500 to-violet-600
+            flex items-center justify-center
+            shadow-md
+            group-hover:scale-105
+            transition
+          ">
+            <span className="text-white font-bold text-sm">
+              CB
+            </span>
+          </div>
+
+          <div>
+            <h1 className="text-lg font-bold tracking-tight text-slate-900">
+              CollabBoard
+            </h1>
+
+            <p className="text-xs text-slate-500 -mt-1">
+              Team Workspace
+            </p>
+          </div>
+        </Link>
+
+        {/* Center Links */}
+        <div className="hidden md:flex items-center gap-8">
           <Link
-            to="/profile"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            to="/dashboard"
+            className="
+              text-sm
+              font-medium
+              text-slate-600
+              hover:text-black
+              transition-colors
+            "
           >
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: user.avatar_color || '#6366f1' }}
-            >
-              <span className="text-white font-semibold text-sm">
-                {user.username.charAt(0).toUpperCase()}
-              </span>
-            </div>
-            <span className="text-gray-700 text-sm font-medium">{user.username}</span>
+            Dashboard
           </Link>
-          <button
-            onClick={handleLogout}
-            className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+
+          <Link
+            to="/projects"
+            className="
+              text-sm
+              font-medium
+              text-slate-600
+              hover:text-black
+              transition-colors
+            "
           >
-            Sign out
-          </button>
+            Projects
+          </Link>
+
+          <Link
+            to="/tasks"
+            className="
+              text-sm
+              font-medium
+              text-slate-600
+              hover:text-black
+              transition-colors
+            "
+          >
+            Tasks
+          </Link>
         </div>
-      )}
+
+        {/* Right Section */}
+        {user && (
+          <div className="flex items-center gap-4">
+
+            {/* Profile */}
+            <Link
+              to="/profile"
+              className="
+                flex items-center gap-3
+                px-3 py-2
+                rounded-2xl
+                hover:bg-slate-100
+                transition
+              "
+            >
+              <div
+                className="
+                  w-10 h-10
+                  rounded-full
+                  flex items-center justify-center
+                  shadow-sm
+                "
+                style={{
+                  backgroundColor: user.avatar_color || '#6366f1',
+                }}
+              >
+                <span className="text-white font-semibold text-sm">
+                  {user.username.charAt(0).toUpperCase()}
+                </span>
+              </div>
+
+              <div className="hidden sm:block">
+                <p className="text-sm font-semibold text-slate-800">
+                  {user.username}
+                </p>
+
+                <p className="text-xs text-slate-500">
+                  Active now
+                </p>
+              </div>
+            </Link>
+
+            {/* Logout Button */}
+            <button
+              onClick={handleLogout}
+              className="
+                px-4 py-2
+                rounded-xl
+                bg-black
+                text-white
+                text-sm
+                font-medium
+                hover:scale-105
+                active:scale-95
+                transition
+              "
+            >
+              Sign out
+            </button>
+          </div>
+        )}
+      </div>
     </nav>
   )
 }
