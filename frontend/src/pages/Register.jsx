@@ -14,8 +14,17 @@ export default function Register() {
     try {
       await client.post('/users/register/', form)
       navigate('/login')
-    } catch {
-      setError('Registration failed. Try a different email.')
+    } catch (err) {
+      const data = err.response?.data;
+      if (data?.username) {
+        setError(data.username[0]);
+      } else if (data?.email) {
+        setError(data.email[0]);
+      } else if (data?.password) {
+        setError(data.password[0]);
+      } else {
+        setError('Registration failed. Try again.');
+      }
     } finally {
       setLoading(false)
     }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import client from '../api/client'
 import toast from 'react-hot-toast'
+import { Pencil, Trash2 } from 'lucide-react'
 
 export default function WorkspaceDetail() {
   const { id } = useParams()
@@ -88,7 +89,7 @@ export default function WorkspaceDetail() {
       {/* Header */}
       <div className="mb-8">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="text-sm text-gray-400 hover:text-gray-600 mb-4 flex items-center gap-1"
         >
           ← Back to workspaces
@@ -232,15 +233,15 @@ export default function WorkspaceDetail() {
                       <div className="flex gap-1">
                         <button
                           onClick={() => { setEditingBoard(board.id); setEditingBoardName(board.name) }}
-                          className="p-1.5 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 rounded-lg transition-colors"
+                            className="p-2 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all"
                         >
-                          ✏️
+                          <Pencil size={16} strokeWidth={2} />
                         </button>
                         <button
                           onClick={() => deleteBoard(board.id)}
-                          className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                          className="p-2 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all"
                         >
-                          🗑️
+                          <Trash2 size={16} strokeWidth={2} />
                         </button>
                       </div>
                     </div>

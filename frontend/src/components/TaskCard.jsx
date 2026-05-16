@@ -3,7 +3,7 @@ import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
 import client from '../api/client'
 import toast from 'react-hot-toast'
-
+import { Pencil, Trash2, CalendarDays } from 'lucide-react'
 const PRIORITY_STYLES = {
   low: 'bg-green-100 text-green-700',
   medium: 'bg-yellow-100 text-yellow-700',
@@ -289,6 +289,7 @@ export default function TaskCard({
               {task.due_date && (
                 <span
                   className={`
+                    inline-flex items-center gap-1
                     text-xs
                     px-2 py-1
                     rounded-full
@@ -299,7 +300,7 @@ export default function TaskCard({
                     }
                   `}
                 >
-                  📅 {task.due_date}
+                  <CalendarDays size={12} strokeWidth={2} /> {task.due_date}
                 </span>
               )}
 
@@ -355,26 +356,17 @@ export default function TaskCard({
                 setEditing(true)
                 setExpanded(true)
               }}
-              className="
-                w-8 h-8
-                rounded-xl
-                hover:bg-slate-100
-                transition
-              "
+              className="p-2 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all"
             >
-              ✏️
+            
+              <Pencil size={16} strokeWidth={2} />
             </button>
 
             <button
               onClick={handleDelete}
-              className="
-                w-8 h-8
-                rounded-xl
-                hover:bg-red-50
-                transition
-              "
+              className="p-2 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all"
             >
-              🗑️
+              <Trash2 size={16} strokeWidth={2} />
             </button>
           </div>
         </div>

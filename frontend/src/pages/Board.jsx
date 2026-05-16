@@ -11,6 +11,8 @@ import {
 import client from '../api/client'
 import KanbanColumn from '../components/KanbanColumn'
 import LabelManager from '../components/LabelManager'
+import { Pencil, Trash2 } from 'lucide-react'
+
 
 export default function Board() {
   const { id } = useParams()
