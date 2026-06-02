@@ -1,5 +1,5 @@
 # Student Collaboration Platform
-
+# Deployed with CI/CD
 A SaaS web application for academic project management, built with Django and React. Students and supervisors can create workspaces, manage members with roles, and organize tasks using Kanban boards.
 
 ---
