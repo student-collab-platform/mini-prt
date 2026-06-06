@@ -27,6 +27,7 @@ function AppContent() {
         <Route path="/workspaces/:id" element={<ProtectedRoute><WorkspaceDetail /></ProtectedRoute>} />
         <Route path="/boards/:id" element={<ProtectedRoute><Board /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/projects" element={<ProtectedRoute><Workspaces /></ProtectedRoute>} />
       </Routes>
     </>
   )

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, NavLink } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export default function Navbar() {
@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/')
   }
 
   return (
@@ -18,7 +18,7 @@ export default function Navbar() {
       border-b border-slate-200
     ">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
+
         {/* Logo */}
         <Link
           to="/home"
@@ -50,45 +50,32 @@ export default function Navbar() {
         </Link>
 
         {/* Center Links */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link
+        <div className="hidden md:flex items-center gap-2">
+          <NavLink
             to="/dashboard"
-            className="
-              text-sm
-              font-medium
-              text-slate-600
-              hover:text-black
-              transition-colors
-            "
+            className={({ isActive }) =>
+              `px-4 py-2 rounded-xl text-sm font-medium transition-all ${isActive
+                ? "bg-indigo-100 text-indigo-700"
+                : "text-slate-600 hover:text-black hover:bg-slate-100"
+              }`
+            }
           >
             Dashboard
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/projects"
-            className="
-              text-sm
-              font-medium
-              text-slate-600
-              hover:text-black
-              transition-colors
-            "
+            className={({ isActive }) =>
+              `px-4 py-2 rounded-xl text-sm font-medium transition-all ${isActive
+                ? "bg-indigo-100 text-indigo-700"
+                : "text-slate-600 hover:text-black hover:bg-slate-100"
+              }`
+            }
           >
             Projects
-          </Link>
+          </NavLink>
 
-          <Link
-            to="/tasks"
-            className="
-              text-sm
-              font-medium
-              text-slate-600
-              hover:text-black
-              transition-colors
-            "
-          >
-            Tasks
-          </Link>
+          
         </div>
 
         {/* Right Section */}
